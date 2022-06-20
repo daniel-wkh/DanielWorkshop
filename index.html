@@ -1,75 +1,276 @@
 <!DOCTYPE html>
-<html class="img-no-display"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-<link rel="shortcut icon" href="#">
-<title>Hello! Welcome to Daniel Workshop!</title>
-<style>
-html {
-    height: 100%;
-    overflow: auto;
-	padding: 0;
-    margin: 0;  
-}
-body {
-    height: 100%;
-	padding: 0;
-    margin: 0;
-}
-div#outer {
-    display: table;
-    height: 100%;
-    width: 100%;
-}
-div#inner {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-div#container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-    min-width: 800px;
-    min-height: 580px;
-}
-img {
-    width: 500px;
-    height: 330px;
-    margin: 30px 0;
-}
-p#header {
-    font-family: Roboto-Medium;
-    font-size: 28px;
-    color: #323C46;
-    text-align: center;
-    line-height: 36px;
-    margin-top: 0;
-    margin-bottom: 12px;
-}
-p#paragraph {
-    font-family: Roboto-Regular;
-    font-size: 13px;
-    color: #323C46;
-    text-align: center;
-    line-height: 20px;
-	margin: 0 auto;
-}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-</style>
-</head>
-<body>
-    <div id="outer">
-        <div id="inner">
-            <div id="container">
-				<div>
-                <img src="web_images/illus_webstation_enabled.jpg"/>
-                <p id="header">Website Under Construction</p>
-                <p id="paragraph">Copyright © Daniel Workshop 2022. All rights reserved.</p>
-				</div>
-			</div>
-        </div>
+    <title>Welcome to Daniel Workshop</title>
+<!--
+DREAM PULSE
+https://templatemo.com/tm-536-dream-pulse
+-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="slick/slick.css"/>    
+    <link rel="stylesheet" href="slick/slick-theme.css"/>    
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/templatemo-dream-pulse.css" />
+  </head>
+  <body>
+    <main class="container-fluid">
+      <div class="row">        
+          <nav id="tmSidebar" class="tm-bg-black-transparent tm-sidebar">
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="tm-sidebar-sticky">
+              <div class="tm-brand-box">
+                <div class="tm-double-border-1">
+                  <div class="tm-double-border-2">
+                    <h1 class="tm-brand text-uppercase">Daniel Wong</h1>
+                  </div>
+                </div>
+              </div>
+
+              <ul id="tmMainNav" class="nav flex-column text-uppercase text-right tm-main-nav">
+                <li class="nav-item">
+                  <a href="#intro" class="nav-link active">
+                    <span class="d-inline-block mr-3">Intro</span>
+                    <span class="d-inline-block tm-white-rect"></span>
+                  </a>
+                </li>                
+                <li class="nav-item">
+                  <a href="#mobilepos" class="nav-link">
+                    <span class="d-inline-block mr-3">Mobile POS</span>
+                    <span class="d-inline-block tm-white-rect"></span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#about" class="nav-link">
+                    <span class="d-inline-block mr-3">About</span>
+                    <span class="d-inline-block tm-white-rect"></span>
+                  </a>
+                </li>
+                <!--
+                <li class="nav-item">
+                  <a href="#talk" class="nav-link">
+                    <span class="d-inline-block mr-3">Let's Talk</span>
+                    <span class="d-inline-block tm-white-rect"></span>
+                  </a>
+                </li>
+                -->
+              </ul>
+              <ul class="nav flex-row tm-social-links">
+              <!--
+                <li class="nav-item">
+                  <a href="https://facebook.com" class="nav-link tm-social-link">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://twitter.com" class="nav-link tm-social-link">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://dribbble.com" class="nav-link tm-social-link">
+                    <i class="fab fa-dribbble"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://linkedin.com" class="nav-link tm-social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+            	-->
+              </ul>
+              <footer class="text-center text-white small">
+                <p class="mb--0 mb-2">Copyright © Daniel Workshop 2022. All rights reserved.</p>
+                <p></p>
+                <p class="mb-0">Design:
+                  <a rel="nofollow" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+                </p>
+              </footer>
+            </div>
+          </nav>
+          
+          <main role="main" class="ml-sm-auto col-12">
+            <div
+              class="parallax-window"
+              data-parallax="scroll"
+              data-image-src="img/dream-pulse-header.jpg">
+              <div class="tm-section-wrap">
+                <section id="intro" class="tm-section">
+                    <div class="tm-bg-white-transparent tm-intro">
+                        <h2 class="tm-section-title mb-5 text-uppercase tm-color-primary">Introducing Daniel Workshop</h2>
+                        <p class="tm-color-gray">
+                          Daniel Workshop is an iOS development studio founded by Daniel Wong.
+                        </p>
+                        <p class="mb-0 tm-color-gray">
+                        
+                        </p>
+                    </div>              
+                </section>
+            </div>            
+          </div>          
+            
+          <div class="tm-section-wrap bg-white">
+            <section id="mobilepos" class="row tm-section">
+              <div class="col-12">
+                <div class="w-100 tm-double-border-1 tm-border-gray">
+                    <div class="tm-double-border-2 tm-border-gray tm-box-pad">
+                      <div class="tm-gallery-wrap">
+                          <h2 class="tm-color-primary tm-section-title mb-4 ml-2">Mobile POS</h2>
+                          <a href="https://apps.apple.com/us/app/mobile-pos-small-business/id1629359650?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1655164800&h=6b5999e8713f6e64b6dd9ee1db7d00d0" alt="Download on the App Store" style="border-radius: 13px; width: 200; height: 66px;"></a>
+                          <div class="tm-gallery">
+                            <div class="tm-gallery-item">                        
+                              <figure class="effect-bubba">
+                                <img src="img/gallery/01.png" alt="Mobile POS Image" class="img-fluid">
+                                <figcaption>
+                                  <p>Shopping Cart</p>
+                                  <a href="img/gallery/01.png">View more</a>
+                                </figcaption>
+                              </figure>
+                            </div>
+                            <div class="tm-gallery-item">
+                              <figure class="effect-bubba">
+                                <img src="img/gallery/02.png" alt="OMobile POS Image" class="img-fluid">
+                                <figcaption>
+                                  <p>Product</p>
+                                  <a href="img/gallery/02.png">View more</a>
+                                </figcaption>
+                              </figure>
+                            </div>
+                            <div class="tm-gallery-item">
+                              <figure class="effect-bubba">
+                                <img src="img/gallery/03.png" alt="Mobile POS Image" class="img-fluid">
+                                <figcaption>
+                                  <p>Member</p>
+                                  <a href="img/gallery/03.png">View more</a>
+                                </figcaption>
+                              </figure>
+                            </div>
+                            <div class="tm-gallery-item">
+                              <figure class="effect-bubba">
+                                <img src="img/gallery/04.png" alt="Mobile POS Image" class="img-fluid">
+                                <figcaption>
+                                  <p>Report</p>
+                                  <a href="img/gallery/04.png">View more</a>
+                                </figcaption>
+                              </figure>
+                            </div>
+                            <div class="tm-gallery-item">
+                              <figure class="effect-bubba">
+                                <img src="img/gallery/05.png" alt="Mobile POS Image" class="img-fluid">
+                                <figcaption>
+                                  <p>Setting</p>
+                                  <a href="img/gallery/05.png">View more</a>
+                                </figcaption>
+                              </figure>
+                            </div>
+                            <div class="tm-gallery-item">
+                              <figure class="effect-bubba">
+                                <img src="img/gallery/06.png" alt="Mobile POS Image" class="img-fluid">
+                                <figcaption>
+                                  <p>Photo</p>
+                                  <a href="img/gallery/06.png">View more</a>
+                                </figcaption>
+                              </figure>
+                            </div>
+                            <div class="tm-gallery-item">
+                              <figure class="effect-bubba">
+                                <img src="img/gallery/07.png" alt="Mobile POS Image" class="img-fluid">
+                                <figcaption>
+                                  <p>Search</p>
+                                  <a href="img/gallery/07.png">View more</a>
+                                </figcaption>
+                              </figure>
+                            </div>
+                            <div class="tm-gallery-item">
+                              <figure class="effect-bubba">
+                                <img src="img/gallery/08.png" alt="Mobile POS Image" class="img-fluid">
+                                <figcaption>
+                                  <p>Flagged</p>
+                                  <a href="img/gallery/08.png">View more</a>
+                                </figcaption>
+                              </figure>
+                            </div>
+                          </div>
+                      </div>                        
+                    </div>                  
+                  </div>     
+              </div>         
+            </section>
+          </div>
+          
+          <div class="tm-section-wrap bg-white">
+            <section id="about" class="row tm-section">
+              <div class="col-xl-6">
+                <div class="tm-section-half">    
+                    <div><i class="fas fa-6x fa-balance-scale mb-5 tm-section-icon"></i></div>                        
+                    <h2 class="tm-section-title tm-color-primary mb-5">About Daniel Workshop</h2>
+                    <p class="mb-5">
+                      Daniel Workshop is an iOS development studio founded by Daniel Wong.
+                    </p>
+                </div>
+              </div>
+            </section>
+          </div>
+            
+        	<!--
+          <div class="tm-section-wrap bg-white">
+            <section id="talk" class="row tm-section">
+                <div class="col-xl-6 mb-5">
+                  <div class="tm-double-border-1 tm-border-gray">
+                    <div class="tm-double-border-2 tm-border-gray tm-box-pad">
+                        <h2 class="tm-color-primary tm-section-title mb-4">Talk to Us</h2>
+                        <p class="mb-4">
+                          Sed aliquet, nibh ac hendrerit faucibus, tellus metus viverra
+                          tellus, vel volutpat purus orci ac ex.
+                        </p>
+                        <p class="mb-3">
+                          120-240 Orci varius natoque penatibus, <br>
+                          parturient montes, 10660 <br>
+                          nasvetur ridiculus mus
+                        </p>
+                    </div>                    
+                  </div>                  
+                </div>
+                <div class="col-xl-6 mb-5">
+                  <div class="tm-contact-form-wrap">
+                    <form action="" method="POST" class="tm-contact-form">
+                        <div class="form-group">
+                          <input type="text" id="contact_name" name="contact_name" class="form-control rounded-0 border-top-0 border-right-0 border-left-0" placeholder="Your Name" required="" />
+                        </div>
+                        <div class="form-group">
+                          <input type="email" id="contact_email" name="contact_email" class="form-control rounded-0 border-top-0 border-right-0 border-left-0" placeholder="Your Email" required="" />
+                        </div>
+                
+                        <div class="form-group">
+                          <textarea rows="4" id="contact_message" name="contact_message" class="form-control rounded-0 border-top-0 border-right-0 border-left-0" placeholder="Message..." required=""></textarea>
+                        </div>
+                
+                        <div class="form-group mb-0">
+                          <button type="submit" class="btn rounded-0 d-block ml-auto tm-btn-primary">
+                            SEND
+                          </button>
+                        </div>
+                      </form>
+                  </div>                    
+                </div>
+                -->
+              </section>
+          </div>
+        </main>        
+      </div>
     </div>
-</body>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="slick/slick.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/templatemo-scripts.js"></script>
+  </body>
 </html>
