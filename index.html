@@ -1,57 +1,789 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-	<!-- templatemo 419 black white -->
-    <!-- 
-    Black White
-    http://www.templatemo.com/preview/templatemo_419_black_white
-    -->
-	<title>Welcome to Daniel Workshop</title>
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css">	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Wong - iOS Developer | Daniel Workshop</title>
+    <meta name="description" content="Daniel Wong - Professional iOS Developer at Daniel Workshop. Creating innovative mobile applications with passion and precision. View my portfolio and get in touch for your next iOS project.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 300%;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: #4ecdc4;
+            transform: translateY(-2px);
+        }
+
+        /* Main content */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .page {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home page */
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400%;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 4s ease infinite;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.4);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(78, 205, 196, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Apps page */
+        .apps-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .apps-header h2 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(78, 205, 196, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .app-card:hover::before {
+            left: 100%;
+        }
+
+        .app-card:hover {
+            transform: translateX(10px);
+            border-color: rgba(78, 205, 196, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        .app-icon.placeholder {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .app-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .app-info h3 {
+            color: #4ecdc4;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #333, #555);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 15px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .app-store-button:hover {
+            background: linear-gradient(45deg, #555, #777);
+            transform: translateY(-2px);
+        }
+
+        /* About page */
+        .about-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3.5rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.05), rgba(78, 205, 196, 0.05));
+        }
+
+        .about-content > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content h2 {
+            color: #4ecdc4;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #d0d0d0;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer-content a {
+            color: #4ecdc4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content a:hover {
+            color: #ff6b6b;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            color: #4ecdc4;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                flex-direction: column;
+                padding: 2rem 1rem;
+                gap: 1.5rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+
+            .app-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .apps-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .about-content,
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Scroll effects */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-	<div class="templatemo-logo visible-xs-block">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg logo-left-container">
-			<h1 class="logo-left">DANIEL</h1>
-		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 white-bg logo-right-container">
-			<h1 class="logo-right">WONG</h1>
-		</div>			
-	</div>
-	<div class="templatemo-container">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg left-container">
-			<h1 class="logo-left hidden-xs margin-bottom-60">DANIEL</h1>			
-			<div class="tm-left-inner-container">
-				<ul class="nav nav-stacked templatemo-nav">
-				  <li><a href="index.html" class="active"><i class="fa fa-home fa-medium"></i>Homepage</a></li>
-				  <li><a href="apps.html"><i class="fa fa-apple fa-medium"></i>Apps</a></li>
-				  <li><a href="about.html"><i class="fa fa-info fa-medium"></i>About Me</a></li>
-				  <!-- <li><a href="contact.html"><i class="fa fa-envelope-o fa-medium"></i>Contact Me</a></li> -->
-				</ul>
-			</div>
-		</div> <!-- left section -->
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 white-bg right-container">
-			<h1 class="logo-right hidden-xs margin-bottom-60">WONG</h1>		
-			<div class="tm-right-inner-container">
-				<h1 class="templatemo-header">Welcome to Daniel Workshop</h1>
-				<img src="images/welcome.png" alt="Welcome" class="img-thumbnail">
-				<article>
-					<h2>Introducing Daniel Workshop</h2>
-					<p>Daniel Workshop is a one-person development studio dedicated to building clean, intuitive, and user-focused digital experiences. From concept to launch, every project is crafted with care, precision, and a deep commitment to quality. Whether it’s a simple tool or a full-featured app, Daniel Workshop delivers thoughtful software that solves real problems.</p>
-					<a href="apps.html" class="btn btn-warning">View Apps</a>			
-				</article>
-				<footer>
-					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright © Daniel Workshop <script>document.write(/\d{4}/.exec(Date())[0])</script>. <br>All rights reserved. <br><br>Design:
-                  	<a rel="nofollow" href="https://templatemo.com" class="tm-footer-link">Template Mo<!-- Credit: www.templatemo.com --></p>
-				</footer>
-			</div>	
-		</div> <!-- right section -->
-	</div>	
+    <div class="bg-animation"></div>
+    
+    <header>
+        <nav class="container">
+            <div class="logo">⚡ Daniel Workshop</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('apps')">Apps</a></li>
+                <li><a href="#" onclick="showPage('about')">About</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <h1>Daniel Wong</h1>
+                <p>Passionate iOS developer crafting extraordinary mobile experiences that solve real-world problems and delight users around the globe.</p>
+                <a href="#" onclick="showPage('apps')" class="cta-button">Explore My Portfolio</a>
+            </section>
+
+            <div class="card-grid">
+                <div class="card scroll-reveal">
+                    <h3>🚀 Swift & SwiftUI Mastery</h3>
+                    <p>Leveraging the full power of Swift and SwiftUI to build lightning-fast, maintainable applications with clean architecture that stands the test of time.</p>
+                </div>
+                <div class="card scroll-reveal">
+                    <h3>🎨 User-Centered Design</h3>
+                    <p>Every pixel matters. I craft intuitive, beautiful interfaces that not only look stunning but create meaningful connections between users and technology.</p>
+                </div>
+                <div class="card scroll-reveal">
+                    <h3>📈 App Store Success</h3>
+                    <p>From concept to launch, I guide apps through the entire journey with proven strategies for App Store optimization and sustainable growth.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Apps Page -->
+        <div id="apps" class="page">
+            <div class="apps-header">
+                <h2>My Apps</h2>
+                <p style="color: #b0b0b0; font-size: 1.2rem;">A collection of mobile solutions crafted with love and precision</p>
+            </div>
+            
+            <div class="app-card scroll-reveal">
+                <div class="app-icon">
+                    <img src="icons/mobile-pos.png" alt="Mobile POS App Icon" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none'; this.parentElement.innerHTML+='📝';">
+                </div>
+                <div class="app-info">
+                    <h3>Mobile POS (Small Business)</h3>
+                    <p>A simple and easy-to-use checkout system on smartphones.</p>
+                    <br>
+                    <a href="https://apps.apple.com/us/app/mobile-pos-small-business/id1629359650" target="_blank" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1655164800&h=6b5999e8713f6e64b6dd9ee1db7d00d0" alt="Download on the App Store" style="border-radius: 13px; width: 200; height: 66px;"></a>
+                </div>
+            </div>
+
+            <div class="app-card scroll-reveal">
+                <div class="app-icon">
+                    <img src="icons/expenses-records.png" alt="Expenses Records App Icon" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none'; this.parentElement.innerHTML+='📝';">
+                </div>
+                <div class="app-info">
+                    <h3>Expenses Records</h3>
+                    <p>An optimized application for personal expenses management.</p>
+                    <br>
+                    <a href="https://apps.apple.com/us/app/expenses-records/id6499447386" target="_blank" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1655164800&h=6b5999e8713f6e64b6dd9ee1db7d00d0" alt="Download on the App Store" style="border-radius: 13px; width: 200; height: 66px;"></a>
+                </div>
+            </div>
+
+            <div class="app-card scroll-reveal">
+                <div class="app-icon">
+                    <img src="icons/groceries-shopping-list.png" alt="Groceries Shopping List App Icon" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none'; this.parentElement.innerHTML+='📝';">
+                </div>
+                <div class="app-info">
+                    <h3>Groceries: Shopping List</h3>
+                    <p>Stay on top of your grocery runs with ease! Easily manage your grocery shopping with a clean, clutter-free experience.</p>
+                    <br>
+                    <a href="https://apps.apple.com/us/app/groceries-shopping-list/id6748971592" target="_blank" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1655164800&h=6b5999e8713f6e64b6dd9ee1db7d00d0" alt="Download on the App Store" style="border-radius: 13px; width: 200; height: 66px;"></a>
+                </div>
+            </div>
+            <div class="app-card scroll-reveal">
+                <div class="app-icon">
+                    <img src="icons/tips-and-split.png" alt="Tip & Split App Icon" onerror="this.parentElement.classList.add('placeholder'); this.style.display='none'; this.parentElement.innerHTML+='📝';">
+                </div>
+                <div class="app-info">
+                    <h3>Tips & Split</h3>
+                    <p>The quickest and easiest way to decide how much the tip will be and how much each party will split.</p>
+                    <br>
+                    <a href="https://apps.apple.com/us/app/tips-split/id6748927930" target="_blank" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1655164800&h=6b5999e8713f6e64b6dd9ee1db7d00d0" alt="Download on the App Store" style="border-radius: 13px; width: 200; height: 66px;"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="about-content scroll-reveal">
+                <h2>About Daniel</h2>
+                <p>
+                    I'm Daniel Wong, founder of Daniel Workshop, where I craft iOS applications guided by a simple philosophy: technology should feel human.
+                </p>
+                
+                <p>
+                    In a world of feature-bloated apps and dark patterns, I choose a different path. Every line of code I write serves a purpose, every interface element earns its place, and every user interaction is designed to feel natural and delightful.
+                </p>
+
+                <p>
+                    My journey began many years ago with a fascination for the intersection of beautiful design and powerful functionality. What started as curiosity has evolved into a deep commitment to creating apps that respect your time, understand your needs, and enhance your daily life without getting in the way.
+                </p>
+
+                <p>
+                    I believe the best technology is invisible - it works so well you forget it's there. That's the standard I hold myself to with every project at Daniel Workshop.
+                </p>
+
+                <h3 style="color: #4ecdc4; margin-bottom: 1.5rem; font-size: 1.8rem;">My Technical Toolkit</h3>
+                <div class="skills">
+                    <span class="skill-tag">Xcode</span>
+                    <span class="skill-tag">Swift</span>
+                    <span class="skill-tag">SwiftUI</span>
+                    <span class="skill-tag">SwiftData</span>
+                    <span class="skill-tag">SwiftLint</span>
+                    <span class="skill-tag">Objective-C</span>
+                    <span class="skill-tag">UIKit</span>
+                    <span class="skill-tag">Core Data</span>
+                    <span class="skill-tag">CloudKit</span>
+                    <span class="skill-tag">Combine</span>
+                    <span class="skill-tag">StoreKit</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">JSON</span>
+                    <span class="skill-tag">RESTful APIs</span>
+                </div>
+
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3 style="color: #4ecdc4; margin-bottom: 1.5rem; font-size: 1.8rem;">Let's Connect</h3>
+                    <p style="margin-bottom: 2rem; color: #d0d0d0; font-size: 1.1rem;">
+                        Have an app idea that could change the world? Or maybe just make someone's day a little brighter? I'd love to hear about it and explore how Daniel Workshop can bring your vision to life.
+                    </p>
+                    
+                    <!--
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="text-align: center;">
+                            <p style="color: #4ecdc4; font-weight: 600; margin-bottom: 0.5rem;">📧 Email</p>
+                            <p><a href="mailto:daniel@danielworkshop.com" style="color: #e0e0e0; text-decoration: none;">daniel@danielworkshop.com</a></p>
+                        </div>
+                        <div style="text-align: center;">
+                            <p style="color: #4ecdc4; font-weight: 600; margin-bottom: 0.5rem;">💼 LinkedIn</p>
+                            <p><a href="https://linkedin.com/in/danielwong-ios" target="_blank" style="color: #e0e0e0; text-decoration: none;">linkedin.com/in/danielwong-ios</a></p>
+                        </div>
+                        <div style="text-align: center;">
+                            <p style="color: #4ecdc4; font-weight: 600; margin-bottom: 0.5rem;">⚡ GitHub</p>
+                            <p><a href="https://github.com/danielworkshop" target="_blank" style="color: #e0e0e0; text-decoration: none;">github.com/danielworkshop</a></p>
+                        </div>
+                    </div>
+                    -->
+
+                    <div style="text-align: center;">
+                        <a href="mailto:info@danielworkshop.com" class="cta-button" style="text-decoration: none; margin: 1rem 0;">Get In Touch</a>
+                        <p style="margin-top: 1rem; color: #888; font-size: 0.9rem;">Usually respond within 24 hours • Available for exciting new projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Copyright &copy; <span id="currentYear"></span> Daniel Workshop. All rights reserved.</p>
+                <p>Crafted with ❤️ by Daniel Wong.</p>
+                <p>Building mobile experiences that make a difference.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById('navMenu').classList.remove('active');
+            
+            window.scrollTo(0, 0);
+            
+            // Trigger scroll reveal animations
+            setTimeout(() => {
+                revealElements();
+            }, 100);
+        }
+
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Scroll reveal animations
+        function revealElements() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            reveals.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('revealed');
+                }, index * 200);
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Reveal initial elements
+            revealElements();
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!navMenu.contains(event.target) && !mobileBtn.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth hover effects for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card, .app-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+
+        // Add typing effect to hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect on page load
+        setTimeout(() => {
+            const heroP = document.querySelector('.hero p');
+            if (heroP) {
+                const originalText = heroP.textContent;
+                typeWriter(heroP, originalText, 30);
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
